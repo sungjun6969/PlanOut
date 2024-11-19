@@ -91,7 +91,7 @@
 		<div class="footer">
         <p>© 2024 P L A N O U T Official. All Rights Reserved.</p>
         <p>CONTACT : 010-3424-1808</p>
-        <p>대표자 : 곽승민</p>
+        <p>대표자 : 박성준</p>
         <p>(주)플랜아웃</p>
         <p>문의사항 : (평일 10:00~17:00) (주말/공휴일 휴무)</p>
     	</div>
