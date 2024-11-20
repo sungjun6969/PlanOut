@@ -53,18 +53,72 @@
     <span class="label">카테고리:</span>
     <span class="value">${item.category}</span>
   </div>
-  <div class="product-info">
-    <span class="label">사이즈:</span>
-    <span class="value">${item.info}</span>
+    <!-- 사이즈 선택 부분 -->
+    <div class="product-info">
+      <span class="label">사이즈:</span> <span id="item-info" class="value">${item.info}</span>
+      <script>
+        const item = { info: "XS S M L XL" };
+
+        const infoElement = document.getElementById("item-info");
+
+
+        const words = item.info.split(" ");
+        infoElement.innerHTML = "";
+        words.forEach(word => {
+          const span = document.createElement("span");
+          span.textContent = word;
+          span.className = "value";
+          span.style.marginRight = "20px";
+          span.onclick = function () {
+
+            document.querySelectorAll(".value").forEach(el => el.classList.remove("clicked"));
+            this.classList.add("clicked");
+
+            if (word === "XL") {
+              alert("품절된 상품입니다. 다른 사이즈를 골라주세요.");
+            } else {
+              alert(`${word} 사이즈가 선택되었습니다.`);
+            }
+          };
+          infoElement.appendChild(span);
+        });
+      </script>
+    </div>
   </div>
-</div>
-  
-	<!-- 버튼 수정란 -->
-  
-  <div class="e93_211"></div><span class="backtext"><a href="/product/cardlist">뒤로가기</a></span>
-  
-  <span class="e102_177">수량 :</span>
-  <div class="e102_178"><input type="number" id="amount" value="1"></div>
-</div>
+
+      <!-- 사이즈 정보 표시 목록 -->
+
+      <div class="size-card-container">
+        <div class="size-card">
+          <h3>상의</h3>
+          <ul>
+            <li>XS(90)</li>
+            <li>S(95)</li>
+            <li>M(100)</li>
+            <li>L(105)</li>
+            <li class="sold-out">XL(재고없음)</li>
+          </ul>
+        </div>
+        <div class="size-card">
+          <h3>하의</h3>
+          <ul>
+            <li>XS(28)</li>
+            <li>S(29)</li>
+            <li>M(30)</li>
+            <li>L(31~32)</li>
+            <li class="sold-out">XL(재고없음)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 버튼 수정란 -->
+
+      <div class="e93_211"></div>
+      <span class="backtext"><a href="/product/cardlist">뒤로가기</a></span> <span
+            class="e102_177">수량 :</span>
+      <div class="e102_178">
+        <input type="number" id="amount" value="1">
+      </div>
+    </div>
 </body>
 </html>
