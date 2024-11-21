@@ -110,7 +110,7 @@ public class ProductController {
 	@PostMapping("/update/{id}")
 	String update(@PathVariable Long id, Product item,List<MultipartFile> uploadFile, @SessionAttribute Member member) {
 		List<Photo> photos = new ArrayList<Photo>();
-	
+
 		for(MultipartFile file : uploadFile) {
 	if(file != null && !file.isEmpty()) {
 		String filename = file.getOriginalFilename();
@@ -123,7 +123,6 @@ public class ProductController {
 			photo.setUuid(uuid);
 			
 			photos.add(photo);
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
