@@ -61,7 +61,6 @@
 
         const infoElement = document.getElementById("item-info");
 
-
         const words = item.info.split(" ");
         infoElement.innerHTML = "";
         words.forEach(word => {
@@ -71,18 +70,24 @@
           span.style.marginRight = "20px";
           span.onclick = function () {
 
-            document.querySelectorAll(".value").forEach(el => el.classList.remove("clicked"));
-            this.classList.add("clicked");
-
+            // XL인지 확인
             if (word === "XL") {
               alert("품절된 상품입니다. 다른 사이즈를 골라주세요.");
-            } else {
-              alert(`${word} 사이즈가 선택되었습니다.`);
+              return; // XL일 경우 클릭 이벤트 종료
             }
+
+            // 다른 모든 span 요소의 clicked 클래스 제거
+            document.querySelectorAll(".value").forEach(el => el.classList.remove("clicked"));
+
+            // 현재 클릭된 span에 clicked 클래스 추가
+            this.classList.add("clicked");
+
+            alert(`${word} 사이즈가 선택되었습니다.`);
           };
           infoElement.appendChild(span);
         });
       </script>
+
     </div>
   </div>
 
